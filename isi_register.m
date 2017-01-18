@@ -93,7 +93,7 @@ if ~exist(load_fn)
 else
 
 load(load_fn, 'diffMean'); 
-
+imtool(diffMean');
 im_filt = imfilter(diffMean,h);
 
 %
