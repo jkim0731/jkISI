@@ -28,7 +28,6 @@ radius = 20; % defaul radius
 
 %%
 
-
 vas_fn = 'vas.qcamraw';
 def_fn = 'def.qcamraw';
 if ~exist(vas_fn)
@@ -93,7 +92,7 @@ if ~exist(load_fn)
 else
 
 load(load_fn, 'diffMean'); 
-imtool(diffMean');
+% imtool(diffMean');
 im_filt = imfilter(diffMean,h);
 
 %
