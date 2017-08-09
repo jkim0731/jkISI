@@ -28,7 +28,6 @@ radius = 20; % defaul radius
 
 %%
 
-
 vas_fn = 'vas.qcamraw';
 def_fn = 'def.qcamraw';
 if ~exist(vas_fn)
@@ -37,8 +36,8 @@ elseif ~exist(def_fn)
     warning('''def.qcamraw'' is not found. Proceeding with red image...');
     def_fn = strcat(fn,'.qcamraw');
 end
-vas = read_qcamraw(vas_fn,1);
-def = read_qcamraw(def_fn,1);
+vas = uint16(mat2gray(read_qcamraw(vas_fn,1))*(2^16));
+def = uint16(mat2gray(read_qcamraw(def_fn,1))*(2^16));
 % vas = imread('vas.tif');
 % def = imread('def.tif');
 
@@ -93,7 +92,7 @@ if ~exist(load_fn)
 else
 
 load(load_fn, 'diffMean'); 
-
+% imtool(diffMean');
 im_filt = imfilter(diffMean,h);
 
 %
